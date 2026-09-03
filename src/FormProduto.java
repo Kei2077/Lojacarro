@@ -47,10 +47,11 @@ public class FormProduto extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         TextQtdVender = new javax.swing.JTextField();
         BotaoVender = new javax.swing.JButton();
+        BotaoSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Carro");
+        jLabel1.setText("Produto");
 
         jLabel3.setText("Valor de Venda");
 
@@ -73,6 +74,9 @@ public class FormProduto extends javax.swing.JFrame {
         BotaoVender.setText("VENDER");
         BotaoVender.addActionListener(this::BotaoVenderActionPerformed);
 
+        BotaoSair.setText("SAIR");
+        BotaoSair.addActionListener(this::BotaoSairActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,18 +96,21 @@ public class FormProduto extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addComponent(BotaoCada)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(BotaoExibi))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(TextEst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(9, 9, 9)
-                                        .addComponent(TextDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(BotaoCada)
+                                                .addGap(129, 129, 129)
+                                                .addComponent(BotaoSair))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel7)
+                                                .addGap(9, 9, 9)
+                                                .addComponent(TextDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(BotaoExibi))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -158,7 +165,8 @@ public class FormProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BotaoCada)
-                            .addComponent(BotaoExibi))
+                            .addComponent(BotaoExibi)
+                            .addComponent(BotaoSair))
                         .addContainerGap())))
         );
 
@@ -198,6 +206,10 @@ public class FormProduto extends javax.swing.JFrame {
         this.TextEst.setText(String.valueOf(prod.estoque));
     }//GEN-LAST:event_BotaoExibiActionPerformed
 
+    private void BotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_BotaoSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -226,6 +238,7 @@ public class FormProduto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoCada;
     private javax.swing.JButton BotaoExibi;
+    private javax.swing.JButton BotaoSair;
     private javax.swing.JButton BotaoVender;
     private javax.swing.JTextField TextDesc;
     private javax.swing.JTextField TextEst;
