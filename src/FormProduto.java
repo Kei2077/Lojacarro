@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class FormProduto extends javax.swing.JFrame {
     
-    Produto car = new Produto();
+    Produto prod = new Produto();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormProduto.class.getName());
 
     /**
@@ -166,7 +166,7 @@ public class FormProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoCadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadaActionPerformed
-       car = new Produto(
+       prod = new Produto(
             this.TextDesc.getText(),
             Double.parseDouble(this.TextVLC.getText()),
             Integer.parseInt(this.TextEst.getText())
@@ -185,17 +185,17 @@ public class FormProduto extends javax.swing.JFrame {
 
     private void BotaoVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVenderActionPerformed
         int qtd = Integer.parseInt(this.TextQtdVender.getText());
-        car.estoque -= qtd;
-        this.TextEst.setText(String.valueOf(car.estoque));
+        prod.estoque -= qtd;
+        this.TextEst.setText(String.valueOf(prod.estoque));
         this.TextQtdVender.setText("");
 
     }//GEN-LAST:event_BotaoVenderActionPerformed
 
     private void BotaoExibiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExibiActionPerformed
-        this.TextDesc.setText(car.descricao);
-        this.TextVLC.setText(String.valueOf(car.valor_compra));
-        this.TextVLV.setText(String.valueOf(car.valor_venda)); 
-        this.TextEst.setText(String.valueOf(car.estoque));
+        this.TextDesc.setText(prod.descricao);
+        this.TextVLC.setText(String.valueOf(prod.valor_compra));
+        this.TextVLV.setText(String.valueOf(prod.valor_venda)); 
+        this.TextEst.setText(String.valueOf(prod.estoque));
     }//GEN-LAST:event_BotaoExibiActionPerformed
 
     /**
