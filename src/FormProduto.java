@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,7 +12,7 @@
  */
 public class FormProduto extends javax.swing.JFrame {
     
-    Carro car = new Carro();
+    Produto car = new Produto();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormProduto.class.getName());
 
     /**
@@ -61,6 +64,7 @@ public class FormProduto extends javax.swing.JFrame {
         BotaoCada.addActionListener(this::BotaoCadaActionPerformed);
 
         BotaoExibi.setText("EXIBIR");
+        BotaoExibi.addActionListener(this::BotaoExibiActionPerformed);
 
         jLabel9.setText("Qtd. a vender");
 
@@ -162,10 +166,16 @@ public class FormProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoCadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadaActionPerformed
-        car.descricao = this.TextDesc.getText();
-        car.estoque = Integer.parseInt(this.TextEst.getText());
-        car.valor_compra = Integer.parseInt(this.TextVLC.getText());
-        
+       car = new Produto(
+            this.TextDesc.getText(),
+            Double.parseDouble(this.TextVLC.getText()),
+            Integer.parseInt(this.TextEst.getText())
+        );
+        JOptionPane.showMessageDialog(null,"Dados Cadastrados");
+        this.TextDesc.setText("");
+        this.TextEst.setText("");
+        this.TextVLC.setText("");
+        this.TextVLV.setText("");
         
     }//GEN-LAST:event_BotaoCadaActionPerformed
 
@@ -174,8 +184,19 @@ public class FormProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_TextQtdVenderActionPerformed
 
     private void BotaoVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVenderActionPerformed
-        // TODO add your handling code here:
+        int qtd = Integer.parseInt(this.TextQtdVender.getText());
+        car.estoque -= qtd;
+        this.TextEst.setText(String.valueOf(car.estoque));
+        this.TextQtdVender.setText("");
+
     }//GEN-LAST:event_BotaoVenderActionPerformed
+
+    private void BotaoExibiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExibiActionPerformed
+        this.TextDesc.setText(car.descricao);
+        this.TextVLC.setText(String.valueOf(car.valor_compra));
+        this.TextVLV.setText(String.valueOf(car.valor_venda)); 
+        this.TextEst.setText(String.valueOf(car.estoque));
+    }//GEN-LAST:event_BotaoExibiActionPerformed
 
     /**
      * @param args the command line arguments
